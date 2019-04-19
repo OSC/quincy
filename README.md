@@ -47,10 +47,10 @@ Then add a 'mysql.config' file in that directory. This contains the information 
     - Uses the JS 'mysql' module to connect to the database
         - Reads database configuration 'mysql.config' as described above
     - Sets some HTTP headers
-    - Defines the HTTP GET route '<BASE_URI>/job/:system/:id' for JSON
-        - Query: "select * from Jobs where jobid like <jid> and system=<system>"
-            - jid: "<job id>.<system>%"
-            - system: owens, ruby, pitzer
+    - Defines the HTTP GET route '{BASE_URI}/job/:system/:id' for JSON
+        - Query: "select * from Jobs where jobid like {jid} and system={system}"
+            - jid: "{job id}.{system}%"
+            - system: owens, ruby, pitzer, oak
         - Sends results back in JSON format
     - Sets 'public' folder up for serving static assets
     - Sets 'public/index.html' for the GET request above
@@ -63,11 +63,12 @@ Then add a 'mysql.config' file in that directory. This contains the information 
         - Provides an authentication form if not authenticated
         - Injects itself into index.html
         - Limits dropdown values to:
-            | Display | Value |
-            | Owens | owens |
-            | Oakley | oak |
-            | Ruby | ruby |
-            | Pitzer | pitzer |
+        - | Display | Value |
+          | --- | --- |
+          | Owens | owens |
+          | Oakley | oak |
+          | Ruby | ruby |
+          | Pitzer | pitzer |
         - Navigates to `./:system/:jobId` on form submit
     - 'job.component.html', 'job.component.ts'
         - Defines a container for a Job
